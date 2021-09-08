@@ -17,6 +17,28 @@ resource "aws_subnet" "subnet" {
   }
 }
 
+# Create a NAT gateway and Elastic IP
+# the internet gateway
+module "nat-gateway" {
+  count                  = var.needs-nat-gateway ? 1 : 0
+  source                 = "../../nat-gateway"
+  nat-gateway-name       = "${var.availability-zone}-nat-gateway"
+  subnet-id              = aws_subnet.public-subnet.id
+  nat-gateway-depends-on = [aws_subnet.public-subnet]
+  tags                   = var.tags
+}
+
+# Create and associate a route tablewith subnet
+module "public-routes" {
+  source                 = "../../route-table"
+  route-table-name       = "public-${var.availability-zone}-route"
+  subnet-id              = aws_subnet.public-subnet.id
+  vpc-id                 = var.vpc-id
+  internet-gateway-id    = var.internet-gateway-id
+  route-table-depends-on = [aws_subnet.public-subnet.id]
+  tags                   = var.tags
+}
+
 
 # NACL
 # traffic in and out of the subnets.
