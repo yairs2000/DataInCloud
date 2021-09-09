@@ -1,0 +1,12 @@
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Debug\netcoreapp3.1\Transfers3Data.deps.json
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Debug\netcoreapp3.1\Transfers3Data.runtimeconfig.json
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Debug\netcoreapp3.1\Transfers3Data.runtimeconfig.dev.json
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Debug\netcoreapp3.1\Transfers3Data.dll
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Debug\netcoreapp3.1\Transfers3Data.pdb
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\obj\Debug\netcoreapp3.1\Transfers3Data.csprojAssemblyReference.cache
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\obj\Debug\netcoreapp3.1\Transfers3Data.AssemblyInfoInputs.cache
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\obj\Debug\netcoreapp3.1\Transfers3Data.AssemblyInfo.cs
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\obj\Debug\netcoreapp3.1\Transfers3Data.csproj.CoreCompileInputs.cache
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\obj\Debug\netcoreapp3.1\Transfers3Data.dll
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\obj\Debug\netcoreapp3.1\Transfers3Data.pdb
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\obj\Debug\netcoreapp3.1\Transfers3Data.genruntimeconfig.cache

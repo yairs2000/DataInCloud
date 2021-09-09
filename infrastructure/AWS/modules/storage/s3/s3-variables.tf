@@ -1,5 +1,5 @@
 ###############################
-# AWS S3 Bucket
+# AWS S3 Bucket variables
 ###############################
 variable "bucket" {
   description = "(Optional, Forces new resource) The name of the bucket. If omitted, Terraform will assign a random, unique name."

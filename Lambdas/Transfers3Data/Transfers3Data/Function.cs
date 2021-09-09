@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 using Amazon.Lambda.Core;
 using Amazon.Lambda.S3Events;
 using Amazon.S3;
+using Amazon.S3.Model;
 using Amazon.S3.Util;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
@@ -43,18 +45,46 @@ namespace Transfers3Data
         /// <param name="evnt"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public async Task<string> FunctionHandler(S3Event evnt, ILambdaContext context)
+        public async Task<bool> FunctionHandler(S3Event evnt, ILambdaContext context)
         {
             var s3Event = evnt.Records?[0].S3;
-            if(s3Event == null)
+           
+            if (s3Event == null)
             {
-                return null;
+                return false;
             }
 
             try
             {
-                var response = await this.S3Client.GetObjectMetadataAsync(s3Event.Bucket.Name, s3Event.Object.Key);
-                return response.Headers.ContentType;
+                string strDestinationBucket = "";
+                string strSourceBucket = s3Event.Bucket.Name;
+                string strFileKeyName = s3Event.Object.Key;
+
+                //read file from s3
+                GetObjectRequest request =
+                    new GetObjectRequest
+                    {
+                        BucketName = strSourceBucket,
+                        Key = strFileKeyName   
+                                                
+                    };
+                GetObjectResponse response = await this.S3Client.GetObjectAsync(request);
+                using (Stream responseStream = response.ResponseStream)
+                using (StreamReader reader = new StreamReader(responseStream))
+                {
+                    string strFileContent = reader.ReadToEnd();
+
+                    //putting the object in new bucket
+                    var putObjectRequest = new PutObjectRequest
+                    {
+                        BucketName = strDestinationBucket,
+                        Key = strFileKeyName,
+                        ContentBody = strFileContent
+                    };
+                    var putObjectresponse = await this.S3Client.PutObjectAsync(putObjectRequest);
+                }
+  
+                return true;
             }
             catch(Exception e)
             {
