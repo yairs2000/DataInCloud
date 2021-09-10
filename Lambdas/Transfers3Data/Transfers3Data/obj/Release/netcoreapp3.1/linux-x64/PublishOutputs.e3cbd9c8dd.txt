@@ -1,0 +1,9 @@
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Release\netcoreapp3.1\publish\Transfers3Data.dll
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Release\netcoreapp3.1\publish\Transfers3Data.deps.json
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Release\netcoreapp3.1\publish\Transfers3Data.runtimeconfig.json
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Release\netcoreapp3.1\publish\Transfers3Data.pdb
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Release\netcoreapp3.1\publish\Amazon.Lambda.Core.dll
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Release\netcoreapp3.1\publish\Amazon.Lambda.S3Events.dll
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Release\netcoreapp3.1\publish\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Release\netcoreapp3.1\publish\AWSSDK.Core.dll
+C:\Users\Aden\Documents\GitHub\DataInCloud\Lambdas\Transfers3Data\Transfers3Data\bin\Release\netcoreapp3.1\publish\AWSSDK.S3.dll

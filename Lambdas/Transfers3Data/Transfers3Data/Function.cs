@@ -56,7 +56,7 @@ namespace Transfers3Data
 
             try
             {
-                string strDestinationBucket = "";
+                string strDestinationBucket = Environment.GetEnvironmentVariable("Destination_Bucket");
                 string strSourceBucket = s3Event.Bucket.Name;
                 string strFileKeyName = s3Event.Object.Key;
 

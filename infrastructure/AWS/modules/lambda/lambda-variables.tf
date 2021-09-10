@@ -16,3 +16,9 @@ variable "envVariables"{
     description = "A list of environment variables"
     type        = map(string) 
 }
+
+variable "IamRoleName" {
+    description = "The name for the Iam role that runs the lambda"
+    type = string
+  
+}
