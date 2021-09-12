@@ -37,3 +37,12 @@ resource "aws_lambda_permission" "allow_bucket" {
   source_arn    = module.s3[0].s3_bucket_arn
 }
 
+
+#create the glue catalog and crawler
+module "glue" {
+  source = "./modules/data/glue"
+  glueCatalogName  = "crimedata"
+  glueCrawlerName  = "GetValidatedData"
+  cralwlerS3Target = module.s3[1].s3_bucket_arn
+  IAMRoleArn       = "arn:aws:iam::583338675555:role/GlueAdmin"
+}
