@@ -22,3 +22,8 @@ variable "IamRoleName" {
     type = string
   
 }
+
+variable "lambdaHandler" {
+    description = "The entry point to the lambda function"
+    type        = string 
+}

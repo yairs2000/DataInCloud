@@ -1,1 +1,1 @@
-{"Modules":[{"Key":"s3","Source":"./modules/storage/s3","Dir":"modules/storage/s3"},{"Key":"Lambda","Source":"./modules/lambda","Dir":"modules/lambda"},{"Key":"","Source":"","Dir":"."}]}
+{"Modules":[{"Key":"s3","Source":"./modules/storage/s3","Dir":"modules/storage/s3"},{"Key":"Lambda","Source":"./modules/lambda","Dir":"modules/lambda"},{"Key":"","Source":"","Dir":"."},{"Key":"glue","Source":"./modules/data/glue","Dir":"modules/data/glue"}]}

@@ -26,7 +26,8 @@ resource "aws_lambda_function" "s3MoveFilesLambda" {
   filename      = var.lambdaFileName
   function_name = var.lambdaFunctionName
   role          = aws_iam_role.iam_for_lambda.arn
-  handler       = "Transfers3Data::Function::FunctionHandler"
+  handler       = var.lambdaHandler
+  timeout       = 50
 
   # The filebase64sha256() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the base64sha256() function and the file() function:

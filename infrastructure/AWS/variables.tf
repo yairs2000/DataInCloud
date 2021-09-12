@@ -39,3 +39,14 @@ variable "lambdaFunctionName" {
   
 }
 
+variable "lambdaHandler" {
+  type = string
+  default = "Transfers3Data::Transfers3Data.Function::FunctionHandler"
+}
+
+variable "lambdaZipPath" {
+    type = string
+    default = "../../Lambdas/Transfers3Data/Transfers3Data/bin/Release/netcoreapp3.1/Transfers3Data.zip"
+  
+}
+

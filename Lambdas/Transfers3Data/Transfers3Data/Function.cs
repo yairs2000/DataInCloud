@@ -58,32 +58,16 @@ namespace Transfers3Data
             {
                 string strDestinationBucket = Environment.GetEnvironmentVariable("Destination_Bucket");
                 string strSourceBucket = s3Event.Bucket.Name;
-                string strFileKeyName = s3Event.Object.Key;
-
-                //read file from s3
-                GetObjectRequest request =
-                    new GetObjectRequest
-                    {
-                        BucketName = strSourceBucket,
-                        Key = strFileKeyName   
-                                                
-                    };
-                GetObjectResponse response = await this.S3Client.GetObjectAsync(request);
-                using (Stream responseStream = response.ResponseStream)
-                using (StreamReader reader = new StreamReader(responseStream))
+       
+                var copyRequest = new CopyObjectRequest
                 {
-                    string strFileContent = reader.ReadToEnd();
+                    SourceBucket = s3Event.Bucket.Name,
+                    SourceKey = s3Event.Object.Key,
+                    DestinationBucket = strDestinationBucket,
+                    DestinationKey = s3Event.Object.Key
+                };
+                var response = await this.S3Client.CopyObjectAsync(copyRequest);
 
-                    //putting the object in new bucket
-                    var putObjectRequest = new PutObjectRequest
-                    {
-                        BucketName = strDestinationBucket,
-                        Key = strFileKeyName,
-                        ContentBody = strFileContent
-                    };
-                    var putObjectresponse = await this.S3Client.PutObjectAsync(putObjectRequest);
-                }
-  
                 return true;
             }
             catch(Exception e)
