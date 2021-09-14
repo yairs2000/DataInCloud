@@ -3,6 +3,7 @@
 # 1. Create the 3 S3 buckets raw, validated, processed
 # 2. Create Lambda to move data from Raw to processed
 # 3. Glue catalog and crawler
+# 4. Create a redshift cluster
 ##############################################################
 
 provider "aws" {
@@ -45,4 +46,14 @@ module "glue" {
   glueCrawlerName  = "GetValidatedData"
   cralwlerS3Target = module.s3[1].s3_bucket_arn
   IAMRoleArn       = "arn:aws:iam::583338675555:role/GlueAdmin"
+}
+
+# create a redshift cluster
+module "redshift" {
+  source = "./modules/data/redshift"
+  cluster_identifier = "dataincloud-rscluster"
+  database_name = "crimedata"
+  node_type = "dc1.large"
+  cluster_type = "single-node"
+  publicly_accessible = true
 }

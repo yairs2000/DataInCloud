@@ -18,7 +18,6 @@ variable "region" {
 }
 
 variable "accountId"{
-    default = "583338675555"
 }
 
 #s3
