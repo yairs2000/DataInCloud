@@ -25,34 +25,34 @@ provider "azurerm" {
 
 #   2. Create a resource group to hold all resources
 module "resource_group" {
-    source      =   "./modules/ResourceGroup"
-    rg-name     =   var.resource_group_name
-    rg-location =   var.location
-  
+  source      = "./modules/ResourceGroup"
+  rg-name     = var.resource_group_name
+  rg-location = var.location
+
 }
 
 # 3. Set up azure storage
 
 #storage account
 module "azure_storage_account" {
-    source = "./modules/Storage/account"
-    name   = var.azure_storage_actname
-    resource_group_name = var.resource_group_name
-    location  = var.location
+  source              = "./modules/Storage/account"
+  name                = var.azure_storage_actname
+  resource_group_name = var.resource_group_name
+  location            = var.location
 }
 
 #Storage container
 module "azure_storage_container" {
-  source = "./modules/Storage/container"
-  name = var.azure_storage_contname
+  source               = "./modules/Storage/container"
+  name                 = var.azure_storage_contname
   storage_account_name = var.azure_storage_actname
 }
 
 #storage blob
 module "azure_storage_blob" {
-  source = "./modules/Storage/blob"
-  count = length(var.blob-names)
-  name  = var.blob-names[count.index]
-  storage_account_name  = var.azure_storage_actname
-  storage_container_name  =  var.azure_storage_contname
+  source                 = "./modules/Storage/blob"
+  count                  = length(var.blob-names)
+  name                   = var.blob-names[count.index]
+  storage_account_name   = var.azure_storage_actname
+  storage_container_name = var.azure_storage_contname
 }
