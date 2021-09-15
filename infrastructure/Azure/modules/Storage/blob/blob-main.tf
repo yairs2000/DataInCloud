@@ -2,8 +2,8 @@
 # Set up Azure storage blob
 ###############################
 resource "azurerm_storage_blob" "example" {
-  name                   = "my-awesome-content.zip"
-  storage_account_name   = azurerm_storage_account.example.name
-  storage_container_name = azurerm_storage_container.example.name
-  type                   = "Block"
+  name                   = var.name
+  storage_account_name   = var.storage_account_name
+  storage_container_name = var.storage_container_name
+  type                   = var.type
 }

@@ -2,8 +2,7 @@
 #   This script does the following
 #   1. Set up the initial azure provider
 #   2. Set up the resource group we will use to provision all additional resources
-#   3. Set up azure api manager
-#   4. Set up redis Cache
+#   3. Set up azure storage
 #   ===============================================================================================
 
 #   1. Set up provider info
@@ -32,20 +31,28 @@ module "resource_group" {
   
 }
 
+# 3. Set up azure storage
 
-#   3. Create azure api manager
-module "api_manager"{
-    source = "./modules/Web/ApiManager"
-    apim-name   = var.apim-name
-    apim-location = var.location
-    apim-rg-name = var.resource_group_name
+#storage account
+module "azure_storage_account" {
+    source = "./modules/Storage/account"
+    name   = var.azure_storage_actname
+    resource_group_name = var.resource_group_name
+    location  = var.location
 }
 
-# 4. Set up redis Cache
+#Storage container
+module "azure_storage_container" {
+  source = "./modules/Storage/container"
+  name = var.azure_storage_contname
+  storage_account_name = var.azure_storage_actname
+}
 
-module "redis_cache"{
-  source = "./modules/Redis"
-  arc-name = var.arc-name
-  arc-location = var.location
-  arc-rg-name = var.resource_group_name
+#storage blob
+module "azure_storage_blob" {
+  source = "./modules/Storage/blob"
+  count = length(var.blob-names)
+  name  = var.blob-names[count.index]
+  storage_account_name  = var.azure_storage_actname
+  storage_container_name  =  var.azure_storage_contname
 }
